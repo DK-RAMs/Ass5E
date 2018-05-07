@@ -15,10 +15,10 @@ public class experSQL{
             int querynum = -1;
             int querystuid = -1;
             while(querynum != 4 || querystuid != 2){
-                System.out.println("Please select the query that you'd like to run:\n1.) Check which courses a student does"); //Asks user to input which query they'd like to run
+                System.out.println("Please select the query that you'd like to run:\n1.) Check which courses a student does\n2.) \n3.) "); //Asks user to input which query they'd like to run
                 querynum = inp.nextInt();
                 if(querynum == 1){
-                    System.out.println("Enter StuID that will be queried");
+                    System.out.println("Enter StuID that will be queried (or enter 2 to close program)");
                     querystuid = inp.nextInt();
                     ResultSet Rs = stmt.executeQuery("select * from uniData where StuID = " + querystuid);
                 
@@ -28,6 +28,10 @@ public class experSQL{
                 }
                 else if(querynum == 2){
                     //missing queries will be added to if ladder and add Rs + getString to every query
+                }
+                else if(querynum == 3){
+                    System.out.println("Enter StuID that will be queried (or enter 2 to close program)");
+                    
                 }
                 System.out.println("Would you like to query again?\n1.) Yes\n2.) No");
                 querystuid = inp.nextInt();
