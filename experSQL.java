@@ -21,7 +21,6 @@ public class experSQL{
                     System.out.println("Enter StuID that will be queried (or enter 2 to close program)");
                     querystuid = inp.nextInt();
                     ResultSet Rs = stmt.executeQuery("select * from uniData where StuID = " + querystuid);
-                
                     while(Rs.next()){
                         System.out.println(Rs.getString("Course") + " - " + Rs.getString("Percent") + " (" + Rs.getString("Symbol") + ")");
                     }
@@ -32,7 +31,10 @@ public class experSQL{
                 else if(querynum == 3){
                     System.out.println("Enter StuID that will be queried (or enter 2 to close program)");
                     querystuid = inp.nextInt();
-                    ResultSet Rs = stmt.executeQuery("select sum(Credits) from uniData where Symbol != "AB" and Symbol != "DPR" and Symbol != "F" and StuID = " querystuid);
+                    ResultSet Rs = stmt.executeQuery("select sum(Credits) as SumCredits from uniData where Symbol != "AB" and Symbol != "DPR" and Symbol != "F" and StuID = " querystuid);
+                    while(Rs.next()){
+                        System.out.println(Rs.getString("SumCourse"));
+                    }
                 }
                 System.out.println("Would you like to query again?\n1.) Yes\n2.) No"); //At end of while loop so that user can decide whether or not to query database again
                 querystuid = inp.nextInt();
